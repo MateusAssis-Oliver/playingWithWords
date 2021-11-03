@@ -1,9 +1,21 @@
+html, body {height:100%;}
+
+html {
+    display:table;
+    width:100%;
+}
+
+body {
+
+    text-align:center;
+    vertical-align:middle;
+}
 
 
 #conteiner{
 
     width: 100%;
-    height: 300px;
+    height: 2S00px;
 
    
 
@@ -41,4 +53,35 @@ textarea {
     text-align: center;
 
     border-radius: 10px;
+}
+
+
+.btn {
+
+    background: green;
+
+    border-radius: 5px;
+    border: none;
+
+    color: white;
+
+    display: inline;
+
+    font-weight: 100;
+
+    letter-spacing: 1px;
+
+    margin-right: 1rem;
+    
+    padding: .5rem .6125rem;
+}
+
+
+.btn:hover {
+    background: darkgreen;
+    cursor: pointer;
+}
+
+#boxInput{
+    margin: 0 auto;
 }

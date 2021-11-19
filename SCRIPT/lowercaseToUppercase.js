@@ -1,6 +1,11 @@
 function lowercaseToUppercase(txt){return txt.toUpperCase(); }
 
-function duplicateLines(arrTxt){
+function duplicateLines(txt){
+
+
+let linebreakSeparationtxt = txt.split("\n")
+
+return linebreakSeparationtxt;
 
 };
 

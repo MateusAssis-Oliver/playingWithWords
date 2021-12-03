@@ -9,8 +9,24 @@
 
 */
 
-let btnClicado = document.querySelectorAll('nav .btn');
-let main = document.getElementById('main');
+const playWinthWord = {
 
-console.log(main)
+  elementTextInput: null,
+  elementTextOutput: null,
+  optionAdhered: null,
 
+  //FUNCSIONS
+
+  setTxt: (elmentText) => {
+    (this.elementTextInput = elmentText.impTxt),
+      (this.elementTextOutput = elmentText.outTxt);
+  },
+
+  setOpsions: (constainer)=>{
+
+    elementTextInput
+  }
+      
+   
+
+};

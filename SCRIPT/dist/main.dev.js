@@ -20,7 +20,64 @@ var playWinthWord = {
   setTxt: function setTxt(elmentText) {
     _this.elementTextInput = elmentText.impTxt, _this.elementTextOutput = elmentText.outTxt;
   },
-  setOpsions: function setOpsions(constainer) {
-    elementTextInput;
+  setOpsions: function setOpsions(kay) {
+    switch (kay) {
+      case "1":
+        {
+          _this.elementTextOutput.value = kay;
+          break;
+        }
+
+      case "2":
+        {
+          _this.elementTextOutput.value = kay;
+          break;
+        }
+
+      case "3":
+        {
+          _this.elementTextOutput.value = kay;
+          break;
+        }
+
+      case "4":
+        {
+          _this.elementTextOutput.value = kay;
+          break;
+        }
+
+      case "5":
+        {
+          _this.elementTextOutput.value = kay;
+          break;
+        }
+
+      case "6":
+        {
+          _this.elementTextOutput.value = kay;
+          break;
+        }
+
+      case "7":
+        {
+          _this.elementTextOutput.value = kay;
+          break;
+        }
+
+      case "8":
+        {
+          _this.elementTextOutput.value = kay;
+          break;
+        }
+
+      case "9":
+        {
+          _this.elementTextOutput.value = kay;
+          break;
+        }
+
+      default:
+        break;
+    }
   }
 };

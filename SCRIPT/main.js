@@ -10,8 +10,46 @@
 */
 
 
+class ModTxt {
 
+  constructor(txt) {
+    this.txt = txt;
+  }
 
+  reveese = () => {
+    let reverse = this.txt.split("").reverse().join("");
+
+    return reverse;
+  };
+
+  UppercaseLowercase = () => {
+    
+    let upperCase_Lowercase = this.txt.toUpperCase();
+    
+    return upperCase_Lowercase;
+  };
+  RemoveDuplicateLines = () => {
+    /* ... */
+  };
+  AlphabeticalOrder = () => {
+    /* ... */
+  };
+  UpsideDown = () => {
+    /* ... */
+  };
+  DifferentLetters = () => {
+    /* ... */
+  };
+  StackedLetters = () => {
+    /* ... */
+  };
+  SynonymousTexts = () => {
+    /* ... */
+  };
+  FindReplace = () => {
+    /* ... */
+  };
+}
 
 
 const playWinthWord = {
@@ -19,20 +57,23 @@ const playWinthWord = {
   elementTextInput: null,
   elementTextOutput: null,
   optionAdhered: null,
-
-  //FUNCSIONS
+  modTxt: null,
 
   setTxt: (elmentText) => {
+
     (this.elementTextInput = elmentText.impTxt),
-      (this.elementTextOutput = elmentText.outTxt);
+    (this.elementTextOutput = elmentText.outTxt),
+    (this.modTxt = new ModTxt(elmentText.impTxt.value));
   },
 
   setOpsions: (kay)=> {
     
     switch (kay) {
     case "1": {
-      this.elementTextOutput.value = kay;
+      let a = this.modTxt.reveese(this.elementTextInput);
 
+      console.log(a)
+      
       break;
     }
     case "2": {

@@ -72,11 +72,13 @@ const playWinthWord = {
       case "2": {
         let b = modTxt.UppercaseLowercase(elementTextInput.value);
         this.elementTextOutput.value = b;
-        console.log(a);
+        console.log(b);
         break;
       }
       case "3": {
-        this.elementTextOutput.value = kay;
+        
+        let c = this.elementTextOutput.value.split(",");
+        console.log(c)
 
         break;
       }

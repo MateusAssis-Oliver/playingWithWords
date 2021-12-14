@@ -9,23 +9,18 @@
 
 */
 
-
 class ModTxt {
+  constructor() {}
 
-  constructor(txt) {
-    this.txt = txt;
-  }
-
-  reveese = () => {
-    let reverse = this.txt.split("").reverse().join("");
+  reveese = (txt) => {
+    let reverse = txt.split("").reverse().join("");
 
     return reverse;
   };
 
-  UppercaseLowercase = () => {
-    
-    let upperCase_Lowercase = this.txt.toUpperCase();
-    
+  UppercaseLowercase = (txt) => {
+    let upperCase_Lowercase = txt.toUpperCase();
+
     return upperCase_Lowercase;
   };
   RemoveDuplicateLines = () => {
@@ -51,77 +46,73 @@ class ModTxt {
   };
 }
 
-
 const playWinthWord = {
-  
   elementTextInput: null,
   elementTextOutput: null,
   optionAdhered: null,
   modTxt: null,
 
   setTxt: (elmentText) => {
-
-    (this.elementTextInput = elmentText.impTxt),
-    (this.elementTextOutput = elmentText.outTxt),
-    (this.modTxt = new ModTxt(elmentText.impTxt.value));
+    (this.elementTextInput = elmentText.impTxt);
+    (this.elementTextOutput = elmentText.outTxt);
+    (this.modTxt = new ModTxt());
   },
 
-  setOpsions: (kay)=> {
-    
+  setOpsions: (kay) => {
     switch (kay) {
-    case "1": {
-      let a = this.modTxt.reveese(this.elementTextInput);
+      case "1": {
+        let a = this.modTxt.reveese(elementTextInput.value);
 
-      console.log(a)
-      
-      break;
+        this.elementTextOutput.value = a;
+
+        console.log(a);
+
+        break;
+      }
+      case "2": {
+        let b = modTxt.UppercaseLowercase(elementTextInput.value);
+        this.elementTextOutput.value = b;
+        console.log(a);
+        break;
+      }
+      case "3": {
+        this.elementTextOutput.value = kay;
+
+        break;
+      }
+      case "4": {
+        this.elementTextOutput.value = kay;
+
+        break;
+      }
+      case "5": {
+        this.elementTextOutput.value = kay;
+
+        break;
+      }
+      case "6": {
+        this.elementTextOutput.value = kay;
+
+        break;
+      }
+      case "7": {
+        this.elementTextOutput.value = kay;
+
+        break;
+      }
+      case "8": {
+        this.elementTextOutput.value = kay;
+
+        break;
+      }
+      case "9": {
+        this.elementTextOutput.value = kay;
+
+        break;
+      }
+
+      default:
+        break;
     }
-    case "2": {
-      this.elementTextOutput.value = kay;
-
-      break;
-    }
-    case "3": {
-      this.elementTextOutput.value = kay;
-
-      break;
-    }
-    case "4": {
-      this.elementTextOutput.value = kay;
-
-      break;
-    }
-    case "5": {
-      this.elementTextOutput.value = kay;
-
-      break;
-    }
-    case "6": {
-      this.elementTextOutput.value = kay;
-
-      break;
-    }
-    case "7": {
-      this.elementTextOutput.value = kay;
-
-      break;
-    }
-    case "8": {
-      this.elementTextOutput.value = kay;
-
-      break;
-    }
-    case "9": {
-      this.elementTextOutput.value = kay;
-
-      break;
-    }
-
-    default:
-      break;
-  }
-}
-
+  },
 };
-
-

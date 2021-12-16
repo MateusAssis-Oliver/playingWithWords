@@ -77,8 +77,21 @@ const playWinthWord = {
       }
       case "3": {
         
-        let c = this.elementTextOutput.value.split(",");
-        console.log(c)
+        let c = this.elementTextInput.value.split("\n"),
+        
+        //Filter clia um novo array com os elemntos que passanram no teste do calbeck
+        d = c.filter( (ele,pos) =>
+
+          /*  
+          faz a comparação, indexOf retorna a posição do elemento se ele for encontrado, caso a posição seja igual a posição atual(pos) retrona true
+          com isso o filter salva o elemnto internamente, quando a comparação do filter acaba ele retona o array com os elemntos, salvos;
+          */
+          c.indexOf(ele) === pos
+
+       
+        );
+
+        this.elementTextOutput.value = d;
 
         break;
       }

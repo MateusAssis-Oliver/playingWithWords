@@ -23,8 +23,22 @@ class ModTxt {
 
     return upperCase_Lowercase;
   };
-  RemoveDuplicateLines = () => {
-    /* ... */
+
+  RemoveDuplicateLines = (txt) => {
+    let separadorLines = txt.split("\n"),
+      /*
+    
+      Filter clia um novo array com os elemntos que passanram no teste do calbeck,  
+      ==> Faz a comparação, indexOf retorna a posição do elemento se ele for encontrado, caso a posição seja igual a posição atual(pos)
+      retrona true com isso o filter salva o elemnto internamente, quando a comparação do filter acaba ele retona o array com os elemntos, salvos;
+   
+    */
+
+      notRepetisons = separadorLines
+        .filter((ele, pos) => separadorLines.indexOf(ele) === pos)
+        .join("\n");
+
+    return notRepetisons;
   };
   AlphabeticalOrder = () => {
     /* ... */
@@ -53,50 +67,45 @@ const playWinthWord = {
   modTxt: null,
 
   setTxt: (elmentText) => {
-    (this.elementTextInput = elmentText.impTxt);
-    (this.elementTextOutput = elmentText.outTxt);
-    (this.modTxt = new ModTxt());
+    this.elementTextInput = elmentText.impTxt;
+    this.elementTextOutput = elmentText.outTxt;
+    this.modTxt = new ModTxt();
   },
 
   setOpsions: (kay) => {
     switch (kay) {
       case "1": {
-        let a = this.modTxt.reveese(elementTextInput.value);
-
-        this.elementTextOutput.value = a;
-
-        console.log(a);
+        console.log(
+          (this.elementTextOutput.value = this.modTxt.reveese(
+            elementTextInput.value
+          ))
+        );
 
         break;
       }
       case "2": {
-        let b = modTxt.UppercaseLowercase(elementTextInput.value);
-        this.elementTextOutput.value = b;
-        console.log(b);
+        /* O  UppercaseLowercase retorna em CAIXA ALTA a cadeia de caracteres recebida como parametro,*/
+        console.log(
+          (this.elementTextOutput.value = modTxt.UppercaseLowercase(
+            elementTextInput.value
+          ))
+        );
+
         break;
       }
       case "3": {
-        
-        let c = this.elementTextInput.value.split("\n"),
-        
-        //Filter clia um novo array com os elemntos que passanram no teste do calbeck
-        d = c.filter( (ele,pos) =>
-
-          /*  
-          faz a comparação, indexOf retorna a posição do elemento se ele for encontrado, caso a posição seja igual a posição atual(pos) retrona true
-          com isso o filter salva o elemnto internamente, quando a comparação do filter acaba ele retona o array com os elemntos, salvos;
-          */
-          c.indexOf(ele) === pos
-
-       
+        console.log(
+          (this.elementTextOutput.value = modTxt.RemoveDuplicateLines(
+            this.elementTextInput.value
+          ))
         );
-
-        this.elementTextOutput.value = d;
 
         break;
       }
       case "4": {
-        this.elementTextOutput.value = kay;
+        this.elementTextOutput.value = modTxt.AlphabeticalOrder(
+          this.elementTextInput.value
+        );
 
         break;
       }

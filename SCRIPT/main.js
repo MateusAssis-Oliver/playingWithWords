@@ -129,9 +129,39 @@ class ModTxt {
       .join("");
   };
 
-  DifferentLetters = () => {
-    /* ... */
+  criatSpan = (arrayFonts) => {
+    let conteinerEspan = document.createElement("div");
   };
+
+  containerFontes = ()=>{
+    let fonts = ["Moon Dance", "Rock 3D", "Monoton", "cocacola", "insta"],
+    a = document.createElement('div'),
+    b = null;
+    a.className = 'fonts';
+
+
+    for (const key in fonts) {
+
+      b = document.createElement('span')
+      b.className = fonts[key]
+      a.append(b)
+
+    }
+
+
+  }
+
+  escondeEsconde = (el) => {
+    /* 
+      Verificardor Ternario, Altera o etsado da caixa de txt Output, assim deixando o "Espaço Vazio",
+      para poder inserir Uma div que sera criada e retornada pela função containerFontes
+    */
+    el.style.display === "none"
+      ? (el.style.display = "block")
+      : ((el.style.display = "none"), el.append(this.containerFontes()));
+
+  };
+
   StackedLetters = () => {
     /* ... */
   };
@@ -148,6 +178,7 @@ class ModTxt {
 const playWinthWord = {
   elementTextInput: null,
   elementTextOutput: null,
+  containerElemtesText: null,
   optionAdhered: null,
   modTxt: null,
   flip: null,
@@ -156,6 +187,9 @@ const playWinthWord = {
     this.elementTextInput = elmentText.impTxt;
     this.elementTextOutput = elmentText.outTxt;
     this.modTxt = new ModTxt();
+    this.containerElemtesText = elmentText.containerText;
+
+    console.log(elmentText.containerText);
   },
 
   setOpsions: (kay) => {
@@ -167,7 +201,7 @@ const playWinthWord = {
           ))
         );
 
-        break;
+        this.containerElemtesText.break;
       }
       case "2": {
         /* O  UppercaseLowercase retorna em CAIXA ALTA a cadeia de caracteres recebida como parametro,*/
@@ -200,14 +234,21 @@ const playWinthWord = {
       case "5": {
         console.log(
           (this.elementTextOutput.value = modTxt.UpsideDown(
-            this.elementTextInput.value)
-          )
+            this.elementTextInput.value
+          ))
         );
 
         break;
       }
       case "6": {
-        this.elementTextOutput.value = kay;
+        modTxt.escondeEsconde(this.elementTextOutput);
+        /* 
+        1 - Esconder o bloco de output;
+        2 - criar um cotainer contendo span;
+        3 - Nomear as clas dos span com o nome das fontrs que estão contidas em um array
+        4 - Mostrar para o ususario;
+        
+        */
 
         break;
       }

@@ -129,36 +129,50 @@ class ModTxt {
       .join("");
   };
 
-  criatSpan = (arrayFonts) => {
-    let conteinerEspan = document.createElement("div");
-  };
 
   containerFontes = ()=>{
     let fonts = ["Moon Dance", "Rock 3D", "Monoton", "cocacola", "insta"],
-    a = document.createElement('div'),
-    b = null;
-    a.className = 'fonts';
-
+    conatainerFontes = document.createElement('div'),
+    divSpan = null,
+    divPaiSpan =null;
+    conatainerFontes.className = "ContainerFonts";
+    conatainerFontes.style.display = "none";
 
     for (const key in fonts) {
+      
+      divPaiSpan = document.createElement("p");
+      divSpan = document.createElement("span");
+      
+      divSpan.id = fonts[key];
+      divSpan.className = "fontes";
+      divSpan.textContent = `${fonts[key]}`
 
-      b = document.createElement('span')
-      b.className = fonts[key]
-      a.append(b)
+      divPaiSpan.append(divSpan);
+      conatainerFontes.append(divPaiSpan);
 
     }
+
+    return conatainerFontes;
 
 
   }
 
-  escondeEsconde = (el) => {
+  escondeEsconde = (objElementos) => {
     /* 
       Verificardor Ternario, Altera o etsado da caixa de txt Output, assim deixando o "Espaço Vazio",
       para poder inserir Uma div que sera criada e retornada pela função containerFontes
     */
-    el.style.display === "none"
-      ? (el.style.display = "block")
-      : ((el.style.display = "none"), el.append(this.containerFontes()));
+  
+
+      if (objElementos.elementTextOutput.style.display === "none") {
+        objElementos.elementTextOutput.style.display = "block"
+        objElementos.containerImpuOutput.lastChild.style.display = "none";
+
+      } else {
+        objElementos.elementTextOutput.style.display = "none"
+        objElementos.containerImpuOutput.lastChild.style.display = "block";
+
+      }
 
   };
 
@@ -178,18 +192,16 @@ class ModTxt {
 const playWinthWord = {
   elementTextInput: null,
   elementTextOutput: null,
-  containerElemtesText: null,
+  containerImpuOutput: null,
   optionAdhered: null,
   modTxt: null,
   flip: null,
 
-  setTxt: (elmentText) => {
-    this.elementTextInput = elmentText.impTxt;
-    this.elementTextOutput = elmentText.outTxt;
+  setTxt: (element) => {
+    this.elementTextInput = element.impTxt;
+    this.elementTextOutput = element.outTxt;
     this.modTxt = new ModTxt();
-    this.containerElemtesText = elmentText.containerText;
-
-    console.log(elmentText.containerText);
+    this.containerImpuOutput = element.containerText;
   },
 
   setOpsions: (kay) => {
@@ -201,7 +213,7 @@ const playWinthWord = {
           ))
         );
 
-        this.containerElemtesText.break;
+        this.containerImpuOutput.break;
       }
       case "2": {
         /* O  UppercaseLowercase retorna em CAIXA ALTA a cadeia de caracteres recebida como parametro,*/
@@ -241,12 +253,27 @@ const playWinthWord = {
         break;
       }
       case "6": {
-        modTxt.escondeEsconde(this.elementTextOutput);
+        
+
+        console.log(containerImpuOutput.lastChild);
+        let conatinerEspan = this.modTxt.containerFontes();
+        this.containerImpuOutput.append(conatinerEspan);
+
+        this.modTxt.escondeEsconde({
+          containerImpuOutput:this.containerImpuOutput,
+          elementTextOutput:this.elementTextOutput
+        });
+        
+
+        
+
+
         /* 
-        1 - Esconder o bloco de output;
-        2 - criar um cotainer contendo span;
-        3 - Nomear as clas dos span com o nome das fontrs que estão contidas em um array
-        4 - Mostrar para o ususario;
+        1 - Esconder o bloco de output; - OK
+        2 - criar um cotainer contendo span; - OK
+        3 - Nomear as clas dos span com o nome das fontrs que estão contidas em um array - OK
+        4 - Mostrar para o ususario - OK
+        5 -tirar as duplicadas que ficam quando clico.
         
         */
 

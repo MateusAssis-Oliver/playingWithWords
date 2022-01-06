@@ -10,7 +10,9 @@
     src: url(./FONTES/Demo_Fonts/Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf);
 }
 
-html, body {height:100%;}
+html, body {
+    height:100%;
+}
 
 html {
     display:table;
@@ -26,7 +28,6 @@ body {
     background-repeat: no-repeat ;
     background-size: cover;
 }
-
 
 #conteiner{ 
 
@@ -74,7 +75,6 @@ textarea {
     border-radius: 10px;
 }
 
-
 .btn {
 
 
@@ -97,8 +97,6 @@ textarea {
 
 }
 
-
-
 .btn:hover {
     background: darkgreen;
     cursor: pointer;
@@ -108,5 +106,11 @@ textarea {
     margin: 0 auto;
 }
 
-
-
+.fontes{
+   
+    background-color: rgb(51, 153, 88);
+    border: rgb(153, 51, 51) 1px solid;
+}
+#conteiner{
+    border: solid 1px rebeccapurple;
+}

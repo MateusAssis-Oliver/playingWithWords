@@ -131,7 +131,7 @@ class ModTxt {
 
 
   containerFontes = ()=>{
-    let fonts = ["Moon Dance", "Rock 3D", "Monoton", "cocacola", "insta"],
+    let fonts = ["MoonDance", "Rock3D", "Monoton", "cocacola","Comforter", "insta"],
     conatainerFontes = document.createElement('div'),
     divSpan = null,
     divPaiSpan =null;

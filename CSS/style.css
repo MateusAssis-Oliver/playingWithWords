@@ -3,11 +3,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comforter&display=swap');
 @font-face {
-    font-family:cocacola;
+    font-family:coca;
     src: url(./FONTES/cocacola.ttf);
 
     font-family: insta;
     src: url(./FONTES/Demo_Fonts/Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf);
+}
+
+
+#MoonDance{
+    font-family: 'Moon Dance';
+}
+#Rock3D{
+  font-family: 'Rock 3D';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+#Monoton{
+ font-family: 'Monoton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;   
+}
+#cocacola{
+
+    font-family: 'coca';
+}
+#insta{
+    font-family: 'insta';
+}
+#Comforter{
+  font-family: 'Comforter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 
 html, body {

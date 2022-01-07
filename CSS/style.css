@@ -106,11 +106,24 @@ textarea {
     margin: 0 auto;
 }
 
-.fontes{
-   
-    background-color: rgb(51, 153, 88);
-    border: rgb(153, 51, 51) 1px solid;
+#ContainerFonts{
+    width: 500px;
+     margin: 0 auto;
+
+    
 }
-#conteiner{
-    border: solid 1px rebeccapurple;
+#ContainerFonts > p{
+    align-items:stretch;
+
+    padding: 10px;
+    resize: none;
+
+    height: 30px;
+    width: 480px;
+
+    border: solid 1px black;
+
+    margin: 0 auto;
+
+    color: red;
 }

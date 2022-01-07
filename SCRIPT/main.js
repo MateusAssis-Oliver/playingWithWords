@@ -136,6 +136,7 @@ class ModTxt {
     divSpan = null,
     divPaiSpan =null;
     conatainerFontes.className = "ContainerFonts";
+    conatainerFontes.id = "ContainerFonts";
     conatainerFontes.style.display = "none";
 
     for (const key in fonts) {
@@ -255,9 +256,14 @@ const playWinthWord = {
       case "6": {
         
 
-        console.log(containerImpuOutput.lastChild);
-        let conatinerEspan = this.modTxt.containerFontes();
-        this.containerImpuOutput.append(conatinerEspan);
+        console.log(containerImpuOutput.lastElementChild.id);
+
+        if (containerImpuOutput.lastElementChild.id != "ContainerFonts") {
+          let conatinerEspan = this.modTxt.containerFontes();
+          this.containerImpuOutput.append(conatinerEspan);
+        }
+
+        
 
         this.modTxt.escondeEsconde({
           containerImpuOutput:this.containerImpuOutput,
@@ -273,7 +279,7 @@ const playWinthWord = {
         2 - criar um cotainer contendo span; - OK
         3 - Nomear as clas dos span com o nome das fontrs que estão contidas em um array - OK
         4 - Mostrar para o ususario - OK
-        5 -tirar as duplicadas que ficam quando clico.
+        5 -tirar as duplicadas que ficam quando clico. - ok
         
         */
 

@@ -67,7 +67,7 @@ body {
 
 textarea {
 
-    font-family: insta;
+    font-family: 'Times New Roman', Times, serif;
 
     resize: none;
 
@@ -143,6 +143,8 @@ textarea {
     
 }
 #ContainerFonts > p{
+
+    background-color:rgb(255, 255, 255);
     align-items:stretch;
 
     padding: 10px;
@@ -155,5 +157,7 @@ textarea {
 
     margin: 0 auto;
 
-    color: red;
+    color: black;
+
+    font-size: 25pt;
 }

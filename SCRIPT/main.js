@@ -129,52 +129,67 @@ class ModTxt {
       .join("");
   };
 
-
-  containerFontes = ()=>{
-    let fonts = ["MoonDance", "Rock3D", "Monoton", "cocacola","Comforter", "insta"],
-    conatainerFontes = document.createElement('div'),
-    divSpan = null,
-    divPaiSpan =null;
+  criatContainerFontes = (txt) => {
+    let fonts = [
+        "MoonDance",
+        "Rock3D",
+        "Monoton",
+        "cocacola",
+        "Comforter",
+        "insta",
+      ],
+      conatainerFontes = document.createElement("div"),
+      divSpan = null,
+      divPaiSpan = null;
     conatainerFontes.className = "ContainerFonts";
     conatainerFontes.id = "ContainerFonts";
     conatainerFontes.style.display = "none";
 
     for (const key in fonts) {
-      
       divPaiSpan = document.createElement("p");
       divSpan = document.createElement("span");
-      
+
       divSpan.id = fonts[key];
       divSpan.className = "fontes";
-      divSpan.textContent = `${fonts[key]}`
+      divSpan.textContent = fonts[key];
 
       divPaiSpan.append(divSpan);
       conatainerFontes.append(divPaiSpan);
-
     }
 
     return conatainerFontes;
+  };
+
+  inseritChild = ({ pai, filho }) => {
+    pai.append(filho);
+  };
+
+  insereTxt = (elementPai,text)=>{
+
+    console.log(`Elemeto Pai = ${elementPai}
+    Texto = ${text}`)
+
+    let filhosAndElemetoPai = elementPai.children;
 
 
+    for(let index = 0; index < filhosAndElemetoPai.length; index++){
+      
+      console.log((filhosAndElemetoPai[index].firstChild.innerText = text));
+    }
+    
   }
 
-  escondeEsconde = (objElementos) => {
+  escondeEsconde = (elementos) => {
     /* 
       Verificardor Ternario, Altera o etsado da caixa de txt Output, assim deixando o "Espaço Vazio",
       para poder inserir Uma div que sera criada e retornada pela função containerFontes
     */
-  
 
-      if (objElementos.elementTextOutput.style.display === "none") {
-        objElementos.elementTextOutput.style.display = "block"
-        objElementos.containerImpuOutput.lastChild.style.display = "none";
-
-      } else {
-        objElementos.elementTextOutput.style.display = "none"
-        objElementos.containerImpuOutput.lastChild.style.display = "block";
-
-      }
-
+    if (elementos.style.display !== "none") {
+      elementos.style.display = "none";
+    } else {
+      elementos.style.display = "block";
+    }
   };
 
   StackedLetters = () => {
@@ -214,10 +229,13 @@ const playWinthWord = {
           ))
         );
 
-        this.containerImpuOutput.break;
+        break;
       }
       case "2": {
-        /* O  UppercaseLowercase retorna em CAIXA ALTA a cadeia de caracteres recebida como parametro,*/
+        /*
+          O  UppercaseLowercase retorna em CAIXA ALTA
+          a cadeia de caracteres recebida como parametro
+        */
         console.log(
           (this.elementTextOutput.value = modTxt.UppercaseLowercase(
             elementTextInput.value
@@ -254,37 +272,48 @@ const playWinthWord = {
         break;
       }
       case "6": {
-        
+        let conatinerEspan = null,
+        numChild = containerImpuOutput.children.length;
 
-        console.log(containerImpuOutput.lastElementChild.id);
+        if (containerImpuOutput.lastElementChild.id === "textoOut") {
+          /* 
+            Cliação do container que tera as fontes especiais 
+          */
+          conatinerEspan = this.modTxt.criatContainerFontes(
+            this.elementTextInput.value
+          );
 
-        if (containerImpuOutput.lastElementChild.id != "ContainerFonts") {
-          let conatinerEspan = this.modTxt.containerFontes();
-          this.containerImpuOutput.append(conatinerEspan);
+          /* Inserir a ligação entre pai e filho */
+          this.modTxt.inseritChild({
+            pai: this.containerImpuOutput,
+            filho: conatinerEspan,
+          });
+
+          /* Esconde uma div para poder aparecer a outra que esta "oulcuta" */
+          this.modTxt.escondeEsconde(
+            containerImpuOutput.children[numChild - 1]
+          );
+
+          this.modTxt.escondeEsconde(
+            containerImpuOutput.children[numChild]
+          );
+
+        } else {
+          /*  */
         }
 
-        
-
-        this.modTxt.escondeEsconde({
-          containerImpuOutput:this.containerImpuOutput,
-          elementTextOutput:this.elementTextOutput
-        });
-        
-
-        
-
+        /* Função que ira inserir o texto do bloco do imput */
+        this.modTxt.insereTxt(containerImpuOutput.lastElementChild,this.elementTextInput.value);
 
         /* 
-        1 - Esconder o bloco de output; - OK
-        2 - criar um cotainer contendo span; - OK
-        3 - Nomear as clas dos span com o nome das fontrs que estão contidas em um array - OK
-        4 - Mostrar para o ususario - OK
-        5 -tirar as duplicadas que ficam quando clico. - ok
-        
+          Possivel melhora, dividir as chamadas de função,
+          envez de criar um bloco e adicionalo,
+          fazer essa adição toda ves que tiver algum conteudo no input
         */
 
         break;
       }
+
       case "7": {
         this.elementTextOutput.value = kay;
 
